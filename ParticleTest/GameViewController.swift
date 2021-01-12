@@ -44,6 +44,16 @@ class GameViewController: UIViewController {
         
         // animate the 3d object
         ship.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 0, y: 2, z: 0, duration: 1)))
+       
+        //var shapeNode:SCNNode
+        var geometry:SCNGeometry
+        
+        geometry = SCNSphere(radius: 1.0)
+        //shapeNode = SCNNode(geometry: geometry)
+        geometry.materials.first?.diffuse.contents = UIColor.red
+
+        let trailEmitter = createTrail(color: UIColor.red, geometry: geometry)
+        ship.addParticleSystem(trailEmitter)
         
         // retrieve the SCNView
         let scnView = self.view as! SCNView
@@ -117,4 +127,15 @@ class GameViewController: UIViewController {
         }
     }
 
+    func createTrail(color: UIColor, geometry: SCNGeometry) -> SCNParticleSystem {
+        
+      // 2
+      let trail = SCNParticleSystem(named: "Trail.scnp", inDirectory: nil)!
+      // 3
+      trail.particleColor = color
+      // 4
+      trail.emitterShape = geometry
+      // 5
+      return trail
+    }
 }

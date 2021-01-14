@@ -4,6 +4,9 @@
 //
 //  Created by rkwright on 1/6/21.
 //
+//  This is partially based on an article by Ray Wenderlich:
+//   https://www.raywenderlich.com/1260-scene-kit-tutorial-with-swift-part-2-nodes
+//
 
 import UIKit
 import QuartzCore
@@ -11,19 +14,15 @@ import SceneKit
 
 class GameViewController: UIViewController {
 
+    
+    /**
+     *  Use the viewDidLoad() overrride to construct our scene.
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
-        
-        // create and add a camera to the scene
-        let cameraNode = SCNNode()
-        cameraNode.camera = SCNCamera()
-        scene.rootNode.addChildNode(cameraNode)
-        
-        // place the camera
-        cameraNode.position = SCNVector3(x: 0, y: 0, z: 15)
+        let scene = createScene()
+        createCamera(scene)
         
         // create and add a light to the scene
         let lightNode = SCNNode()
@@ -40,7 +39,7 @@ class GameViewController: UIViewController {
         scene.rootNode.addChildNode(ambientLightNode)
         
         // retrieve the ship node
-        let ship = scene.rootNode.childNode(withName: "ship", recursively: true)!
+        let ship = scene.rootNode.childNode(withName: "ship", recursively:true)!
         
         // animate the 3d object
         ship.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 0, y: 2, z: 0, duration: 1)))
@@ -75,6 +74,22 @@ class GameViewController: UIViewController {
         scnView.addGestureRecognizer(tapGesture)
     }
     
+    fileprivate func createScene() -> SCNScene {
+        // create a new scene
+        let scene = SCNScene(named: "art.scnassets/ship.scn")!
+        return scene
+    }
+    
+    fileprivate func createCamera(_ scene: SCNScene) {
+        // create and add a camera to the scene
+        let cameraNode = SCNNode()
+        cameraNode.camera = SCNCamera()
+        scene.rootNode.addChildNode(cameraNode)
+        
+        // place the camera
+        cameraNode.position = SCNVector3(x: 0, y: 0, z: 15)
+    }
+
     @objc
     func handleTap(_ gestureRecognize: UIGestureRecognizer) {
         // retrieve the SCNView

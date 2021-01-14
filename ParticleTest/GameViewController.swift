@@ -14,8 +14,6 @@ import SceneKit
 
 class GameViewController: UIViewController {
 
-    
-    
     /**
      *  Use the viewDidLoad() overrride to construct our scene.
      */

@@ -13,8 +13,7 @@ import QuartzCore
 import SceneKit
 
 class ParticleViewController: UIViewController {
-
-    
+  
     /**
      *  Use the viewDidLoad() overrride to construct our scene.
      */
@@ -102,7 +101,7 @@ class ParticleViewController: UIViewController {
         
         let geometry:SCNGeometry = SCNSphere(radius: 1.0)
         
-        geometry.materials.first?.diffuse.contents = UIColor.red
+        // geometry.materials.first?.diffuse.contents = UIColor.green
 
         // Fetch the particle system from the file
         let trail = SCNParticleSystem(named: "Trail.scnp", inDirectory: nil)!
@@ -117,8 +116,8 @@ class ParticleViewController: UIViewController {
     /*
      * Create a particle system only with code.
      */
-    func createTrailCode( color: UIColor ) ->SCNParticleSystem {
-        
+    func createTrailCode( color: UIColor ) -> SCNParticleSystem {
+
         let particleSystem = SCNParticleSystem()
         particleSystem.birthRate = 5000
         particleSystem.particleLifeSpan = 1
@@ -132,7 +131,7 @@ class ParticleViewController: UIViewController {
         particleSystem.emitterShape = .some(SCNSphere(radius: 15.0))
         particleSystem.spreadingAngle = 90
         particleSystem.particleImage = "star"
-   
+        
         return particleSystem
     }
 

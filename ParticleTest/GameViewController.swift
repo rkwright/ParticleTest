@@ -14,6 +14,7 @@ import SceneKit
 
 class GameViewController: UIViewController {
 
+    
     /**
      *  Use the viewDidLoad() overrride to construct our scene.
      */
@@ -36,24 +37,7 @@ class GameViewController: UIViewController {
        
         ship.addParticleSystem(trailEmitter)
         
-        // retrieve the SCNView
-        let scnView = self.view as! SCNView
-        
-        // set the scene to the view
-        scnView.scene = scene
-        
-        // allows the user to manipulate the camera
-        scnView.allowsCameraControl = true
-        
-        // show statistics such as fps and timing information
-        scnView.showsStatistics = true
-        
-        // configure the view
-        scnView.backgroundColor = UIColor.black
-        
-        // add a tap gesture recognizer
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-        scnView.addGestureRecognizer(tapGesture)
+        configUI(scene)
     }
     
     /**
@@ -128,6 +112,31 @@ class GameViewController: UIViewController {
       return trail
     }
     
+    /**
+     * Set up the various user-facing aspects
+     */
+    func configUI ( _ scene: SCNScene) {
+        
+        // retrieve the SCNView
+        let scnView = self.view as! SCNView
+        
+        // set the scene to the view
+        scnView.scene = scene
+        
+        // allows the user to manipulate the camera
+        scnView.allowsCameraControl = true
+        
+        // show statistics such as fps and timing information
+        scnView.showsStatistics = true
+        
+        // configure the view
+        scnView.backgroundColor = UIColor.black
+        
+        // add a tap gesture recognizer
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        scnView.addGestureRecognizer(tapGesture)
+    }
+
     /**
      * Tap handler
      */

@@ -29,14 +29,12 @@ class ParticleViewController: UIViewController {
 
         let ship = fetchShip(scene)
        
-        let geometry:SCNGeometry = SCNSphere(radius: 1.0)
-        
-        geometry.materials.first?.diffuse.contents = UIColor.red
-
         let trailEmitter = createTrailSCNP(color: UIColor.red )
-       
         ship.addParticleSystem(trailEmitter)
         
+        let trailEmitterCode = createTrailCode(color: UIColor.blue )
+        ship.addParticleSystem(trailEmitterCode)
+
         configUI(scene)
     }
     
@@ -116,6 +114,28 @@ class ParticleViewController: UIViewController {
       return trail
     }
     
+    /*
+     * Create a particle system only with code.
+     */
+    func createTrailCode( color: UIColor ) ->SCNParticleSystem {
+        
+        let particleSystem = SCNParticleSystem()
+        particleSystem.birthRate = 5000
+        particleSystem.particleLifeSpan = 1
+        particleSystem.warmupDuration = 1
+        particleSystem.emissionDuration = 100.0
+        particleSystem.loops = false
+        particleSystem.particleColor = color
+        particleSystem.birthDirection = .random
+        particleSystem.speedFactor = 7
+        particleSystem.emittingDirection = SCNVector3(0,1,1)
+        particleSystem.emitterShape = .some(SCNSphere(radius: 15.0))
+        particleSystem.spreadingAngle = 90
+        particleSystem.particleImage = "star"
+   
+        return particleSystem
+    }
+
     /**
      * Set up the various user-facing aspects
      */

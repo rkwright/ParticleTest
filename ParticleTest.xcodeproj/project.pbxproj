@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		55253F5925A647FD005D1737 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55253F5825A647FD005D1737 /* AppDelegate.swift */; };
 		55253F5B25A647FD005D1737 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 55253F5A25A647FD005D1737 /* art.scnassets */; };
-		55253F5D25A647FD005D1737 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55253F5C25A647FD005D1737 /* GameViewController.swift */; };
+		55253F5D25A647FD005D1737 /* ParticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55253F5C25A647FD005D1737 /* ParticleViewController.swift */; };
 		55253F6025A647FD005D1737 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55253F5E25A647FD005D1737 /* Main.storyboard */; };
 		55253F6225A64801005D1737 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55253F6125A64801005D1737 /* Assets.xcassets */; };
 		55253F6F25ACE513005D1737 /* Trail.scnp in Resources */ = {isa = PBXBuildFile; fileRef = 55253F6E25ACE513005D1737 /* Trail.scnp */; };
@@ -19,7 +19,7 @@
 		55253F5525A647FD005D1737 /* ParticleTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParticleTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55253F5825A647FD005D1737 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55253F5A25A647FD005D1737 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
-		55253F5C25A647FD005D1737 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		55253F5C25A647FD005D1737 /* ParticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticleViewController.swift; sourceTree = "<group>"; };
 		55253F5F25A647FD005D1737 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		55253F6125A64801005D1737 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55253F6325A64801005D1737 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,7 +59,7 @@
 				55253F6A25A64836005D1737 /* Particles */,
 				55253F5825A647FD005D1737 /* AppDelegate.swift */,
 				55253F5A25A647FD005D1737 /* art.scnassets */,
-				55253F5C25A647FD005D1737 /* GameViewController.swift */,
+				55253F5C25A647FD005D1737 /* ParticleViewController.swift */,
 				55253F5E25A647FD005D1737 /* Main.storyboard */,
 				55253F6125A64801005D1737 /* Assets.xcassets */,
 				55253F6325A64801005D1737 /* Info.plist */,
@@ -146,7 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55253F5D25A647FD005D1737 /* GameViewController.swift in Sources */,
+				55253F5D25A647FD005D1737 /* ParticleViewController.swift in Sources */,
 				55253F5925A647FD005D1737 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

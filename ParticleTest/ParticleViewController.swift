@@ -12,7 +12,7 @@ import UIKit
 import QuartzCore
 import SceneKit
 
-class GameViewController: UIViewController {
+class ParticleViewController: UIViewController {
 
     
     /**
@@ -33,7 +33,7 @@ class GameViewController: UIViewController {
         
         geometry.materials.first?.diffuse.contents = UIColor.red
 
-        let trailEmitter = createTrail(color: UIColor.red, geometry: geometry)
+        let trailEmitter = createTrailSCNP(color: UIColor.red )
        
         ship.addParticleSystem(trailEmitter)
         
@@ -100,14 +100,18 @@ class GameViewController: UIViewController {
     /**
      * Create the trail system in memory by loading the file (actually in app's resources)
      */
-    func createTrail ( color: UIColor, geometry: SCNGeometry ) -> SCNParticleSystem {
+    func createTrailSCNP ( color: UIColor ) -> SCNParticleSystem {
         
-      // Fetch the particle system from the file
-      let trail = SCNParticleSystem(named: "Trail.scnp", inDirectory: nil)!
+        let geometry:SCNGeometry = SCNSphere(radius: 1.0)
         
-      // set the color and geometry
-      trail.particleColor = color
-      trail.emitterShape = geometry
+        geometry.materials.first?.diffuse.contents = UIColor.red
+
+        // Fetch the particle system from the file
+        let trail = SCNParticleSystem(named: "Trail.scnp", inDirectory: nil)!
+        
+        // set the color and geometry
+        trail.particleColor = color
+        trail.emitterShape = geometry
       
       return trail
     }

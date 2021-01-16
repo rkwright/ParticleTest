@@ -13,7 +13,7 @@
 		55253F6025A647FD005D1737 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55253F5E25A647FD005D1737 /* Main.storyboard */; };
 		55253F6225A64801005D1737 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55253F6125A64801005D1737 /* Assets.xcassets */; };
 		55253F6F25ACE513005D1737 /* Trail.scnp in Resources */ = {isa = PBXBuildFile; fileRef = 55253F6E25ACE513005D1737 /* Trail.scnp */; };
-		557609B625B24B4A00CEBEAA /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 557609B525B24B4A00CEBEAA /* star.png */; };
+		55EB8CCC25B34D3F000C1CA6 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 55EB8CCB25B34D3F000C1CA6 /* star.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,7 @@
 		55253F6125A64801005D1737 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55253F6325A64801005D1737 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55253F6E25ACE513005D1737 /* Trail.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = Trail.scnp; sourceTree = "<group>"; };
-		557609B525B24B4A00CEBEAA /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		55EB8CCB25B34D3F000C1CA6 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +72,7 @@
 		55253F6A25A64836005D1737 /* Particles */ = {
 			isa = PBXGroup;
 			children = (
-				557609B525B24B4A00CEBEAA /* star.png */,
+				55EB8CCB25B34D3F000C1CA6 /* star.png */,
 				55253F6E25ACE513005D1737 /* Trail.scnp */,
 			);
 			path = Particles;
@@ -136,7 +136,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55253F6F25ACE513005D1737 /* Trail.scnp in Resources */,
-				557609B625B24B4A00CEBEAA /* star.png in Resources */,
+				55EB8CCC25B34D3F000C1CA6 /* star.png in Resources */,
 				55253F5B25A647FD005D1737 /* art.scnassets in Resources */,
 				55253F6225A64801005D1737 /* Assets.xcassets in Resources */,
 				55253F6025A647FD005D1737 /* Main.storyboard in Resources */,

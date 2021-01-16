@@ -31,7 +31,7 @@ class ParticleViewController: UIViewController {
         let trailEmitter = createTrailSCNP(color: UIColor.red )
         ship.addParticleSystem(trailEmitter)
         
-        let trailEmitterCode = createTrailCode(color: UIColor.blue )
+        let trailEmitterCode = createTrailCode(color: UIColor.green )
         ship.addParticleSystem(trailEmitterCode)
 
         configUI(scene)
@@ -122,7 +122,7 @@ class ParticleViewController: UIViewController {
         particleSystem.birthRate = 5000
         particleSystem.particleLifeSpan = 1
         particleSystem.warmupDuration = 1
-        particleSystem.emissionDuration = 100.0
+        particleSystem.emissionDuration = 500.0
         particleSystem.loops = false
         particleSystem.particleColor = color
         particleSystem.birthDirection = .random

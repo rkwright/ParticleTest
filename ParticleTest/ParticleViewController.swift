@@ -28,7 +28,7 @@ class ParticleViewController: UIViewController {
 
         let ship = fetchShip(scene)
        
-        transformShip(ship)
+        transformShip(ship, scene: scene)
 
         let trailSCNP = createTrailSCNP(color: UIColor.red )
         ship.addParticleSystem(trailSCNP)
@@ -52,7 +52,7 @@ class ParticleViewController: UIViewController {
      * Load the ship from the app's resources then set it rotating
      */
     func fetchShip ( _ scene: SCNScene ) ->SCNNode {
-        // retrieve the ship node
+        
         let ship = scene.rootNode.childNode(withName: "ship", recursively:true)!
         
         return ship
@@ -61,8 +61,16 @@ class ParticleViewController: UIViewController {
     /**
      * Set up the animation for the ship.  Doesn't do much yet.
      */
-    func transformShip(_ ship: SCNNode) {
-        ship.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 0, y: 2, z: 0, duration: 1)))
+    func transformShip(_ ship: SCNNode, scene : SCNScene ) {
+        
+        let origin = SCNNode()
+        
+        ship.pivot = SCNMatrix4MakeTranslation(3.5, 0.0, 0.5)
+        
+        origin.addChildNode(ship)
+        scene.rootNode.addChildNode(origin)
+        
+        ship.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x:3.14, y:0.0, z:0.0, duration:5)))
     }
 
     /**

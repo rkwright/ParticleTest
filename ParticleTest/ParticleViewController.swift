@@ -5,7 +5,7 @@
 //  Created by rkwright on 1/6/21.
 //
 //  This is partially based on an article by Ray Wenderlich:
-//   https://www.raywenderlich.com/1260-scene-kit-tutorial-with-swift-part-2-nodes
+//   https://www.raywenderlich.com/901-scenekit-tutorial-with-swift-part-5-particle-systems
 //
 
 import UIKit
@@ -28,11 +28,11 @@ class ParticleViewController: UIViewController {
 
         let ship = fetchShip(scene)
        
-        let trailEmitter = createTrailSCNP(color: UIColor.red )
-        ship.addParticleSystem(trailEmitter)
+        let trailSCNP = createTrailSCNP(color: UIColor.red )
+        ship.addParticleSystem(trailSCNP)
         
-        let trailEmitterCode = createTrailCode(color: UIColor.green )
-        ship.addParticleSystem(trailEmitterCode)
+        let trailCode = createTrailCode(color: UIColor.green )
+        ship.addParticleSystem(trailCode)
 
         configUI(scene)
     }
@@ -100,8 +100,6 @@ class ParticleViewController: UIViewController {
     func createTrailSCNP ( color: UIColor ) -> SCNParticleSystem {
         
         let geometry:SCNGeometry = SCNSphere(radius: 1.0)
-        
-        // geometry.materials.first?.diffuse.contents = UIColor.green
 
         // Fetch the particle system from the file
         let trail = SCNParticleSystem(named: "Trail.scnp", inDirectory: nil)!

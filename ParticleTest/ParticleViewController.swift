@@ -1,5 +1,5 @@
 //
-//  GameViewController.swift
+//  ParticleViewController.swift
 //  ParticleTest
 //
 //  Created by rkwright on 1/6/21.
@@ -28,6 +28,8 @@ class ParticleViewController: UIViewController {
 
         let ship = fetchShip(scene)
        
+        transformShip(ship)
+
         let trailSCNP = createTrailSCNP(color: UIColor.red )
         ship.addParticleSystem(trailSCNP)
         
@@ -41,7 +43,6 @@ class ParticleViewController: UIViewController {
      * Create the scene by loading it from the app's resources
      */
     func createScene () -> SCNScene {
-        // create a new scene
         let scene = SCNScene(named: "art.scnassets/ship.scn")!
         
         return scene
@@ -54,12 +55,16 @@ class ParticleViewController: UIViewController {
         // retrieve the ship node
         let ship = scene.rootNode.childNode(withName: "ship", recursively:true)!
         
-        // animate the 3d object
-        ship.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 0, y: 2, z: 0, duration: 1)))
-
         return ship
     }
     
+    /**
+     * Set up the animation for the ship.  Doesn't do much yet.
+     */
+    func transformShip(_ ship: SCNNode) {
+        ship.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 0, y: 2, z: 0, duration: 1)))
+    }
+
     /**
      * Just create a single camera and point it at the scene
      */

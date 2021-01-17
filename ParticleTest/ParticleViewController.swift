@@ -65,12 +65,13 @@ class ParticleViewController: UIViewController {
         
         let origin = SCNNode()
         
-        ship.pivot = SCNMatrix4MakeTranslation(3.5, 0.0, 0.5)
+        ship.scale = SCNVector3(x: 0.25, y: 0.25, z: 0.25)
+        ship.pivot = SCNMatrix4MakeTranslation(15.0, 0.0, 0.5)
         
         origin.addChildNode(ship)
         scene.rootNode.addChildNode(origin)
         
-        ship.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x:3.14, y:0.0, z:0.0, duration:5)))
+        origin.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x:0, y:3.14, z:0.0, duration:5)))
     }
 
     /**
@@ -136,11 +137,12 @@ class ParticleViewController: UIViewController {
         particleSystem.emissionDuration = 500.0
         particleSystem.loops = false
         particleSystem.particleColor = color
+        particleSystem.particleSize = 0.25
         particleSystem.birthDirection = .random
         particleSystem.speedFactor = 7
         particleSystem.emittingDirection = SCNVector3(0,1,1)
-        particleSystem.emitterShape = .some(SCNSphere(radius: 15.0))
-        particleSystem.spreadingAngle = 90
+        particleSystem.emitterShape = .some(SCNSphere(radius: 2.0))
+        particleSystem.spreadingAngle = 30
         particleSystem.particleImage = "star"
         
         return particleSystem

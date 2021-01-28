@@ -112,15 +112,12 @@ class ParticleViewController: UIViewController {
      * Create the trail system in memory by loading the file (actually in app's resources)
      */
     func createTrailSCNP ( color: UIColor ) -> SCNParticleSystem {
-        
-        let geometry:SCNGeometry = SCNSphere(radius: 1.0)
 
         // Fetch the particle system from the file
         let trail = SCNParticleSystem(named: "Trail.scnp", inDirectory: nil)!
         
         // set the color and geometry
         trail.particleColor = color
-        trail.emitterShape = geometry
       
       return trail
     }
@@ -131,20 +128,28 @@ class ParticleViewController: UIViewController {
     func createTrailCode( color: UIColor ) -> SCNParticleSystem {
 
         let particleSystem = SCNParticleSystem()
-        particleSystem.birthRate = 5000
-        particleSystem.particleLifeSpan = 1
-        particleSystem.warmupDuration = 1
-        particleSystem.emissionDuration = 500.0
-        particleSystem.loops = false
+        particleSystem.birthRate = 5
+        particleSystem.particleLifeSpan = 5
+        particleSystem.warmupDuration = 0
+        particleSystem.emissionDuration = 1.0
+        particleSystem.loops = true
         particleSystem.particleColor = color
-        particleSystem.particleSize = 0.25
-        particleSystem.birthDirection = .random
-        particleSystem.speedFactor = 7
-        particleSystem.emittingDirection = SCNVector3(0,1,1)
-        particleSystem.emitterShape = .some(SCNSphere(radius: 2.0))
+        particleSystem.particleSize = 0.2
+        particleSystem.birthDirection = .constant
+        particleSystem.birthLocation = .vertex
+        particleSystem.speedFactor = 1
+        particleSystem.emittingDirection = SCNVector3(0,0,0)
+        particleSystem.emitterShape = .some(SCNSphere(radius: 0.2))
         particleSystem.spreadingAngle = 30
         particleSystem.particleImage = "star"
-        
+        particleSystem.isAffectedByGravity = false
+        particleSystem.acceleration = SCNVector3(0.0,-1.0,0.0)
+        particleSystem.particleBounce = 0.7
+        particleSystem.particleFriction = 1
+        particleSystem.particleMass = 1
+        particleSystem.particleIntensity = 1
+        particleSystem.blendMode = .alpha
+
         return particleSystem
     }
 
@@ -155,7 +160,7 @@ class ParticleViewController: UIViewController {
         
         // retrieve the SCNView
         let scnView = self.view as! SCNView
-        
+                
         // set the scene to the view
         scnView.scene = scene
         
@@ -167,7 +172,7 @@ class ParticleViewController: UIViewController {
         
         // configure the view
         scnView.backgroundColor = UIColor.black
-        
+ 
         // add a tap gesture recognizer
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         scnView.addGestureRecognizer(tapGesture)

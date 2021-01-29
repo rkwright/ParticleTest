@@ -149,9 +149,39 @@ class ParticleViewController: UIViewController {
         particleSystem.particleIntensity = 1
         particleSystem.blendMode = .alpha
 
+        let sizeController = setupPropControl();
+        particleSystem.propertyControllers = [ SCNParticleSystem.ParticleProperty.size: sizeController ]
+        
         return particleSystem
     }
 
+    /**
+     * Create a PropertyController for "Size"
+     *
+     * // 1. Create and configure an animation object.
+     * let animation = CAKeyframeAnimation()
+     * animation.values = [ 0.1, 1.0, 3.0, 0.5 ]
+     *
+     * // 2. Create a property controller from the animation object.
+     * let sizeController = SCNParticlePropertyController(animation: animation)
+     *
+     * // 3. Assign the controller to a particle system, associating it with a particle property.
+     * particleSystem.propertyControllers = [ SCNParticlePropertySize: sizeController ]
+     */
+    func setupPropControl () -> SCNParticlePropertyController {
+        
+        // Create and configure an animation object.
+        let animation = CAKeyframeAnimation()
+        animation.values = [ 1.0, 0.6, 0.3, 0.0 ]
+    
+        // Create a property controller from the animation object.
+        let sizeController = SCNParticlePropertyController()
+        sizeController.animation = animation
+
+        // return the controller
+         return sizeController
+    }
+    
     /**
      * Set up the various user-facing aspects
      */

@@ -5,11 +5,10 @@
 //  Created by rkwright on 1/6/21.
 //
 //  This is partially based on an article by Ray Wenderlich:
-//   https://www.raywenderlich.com/901-scenekit-tutorial-with-swift-part-5-particle-systems
+//  https://www.raywenderlich.com/901-scenekit-tutorial-with-swift-part-5-particle-systems
 //
 
 import UIKit
-import QuartzCore
 import SceneKit
 
 class ParticleViewController: UIViewController {
@@ -129,17 +128,17 @@ class ParticleViewController: UIViewController {
 
         let particleSystem = SCNParticleSystem()
         particleSystem.birthRate = 5
+        particleSystem.birthDirection = .constant
+        particleSystem.birthLocation = .vertex
         particleSystem.particleLifeSpan = 5
         particleSystem.warmupDuration = 0
         particleSystem.emissionDuration = 1.0
+        particleSystem.emittingDirection = SCNVector3(0,0,0)
+        particleSystem.emitterShape = .some(SCNSphere(radius: 0.2))
         particleSystem.loops = true
         particleSystem.particleColor = color
         particleSystem.particleSize = 0.2
-        particleSystem.birthDirection = .constant
-        particleSystem.birthLocation = .vertex
         particleSystem.speedFactor = 1
-        particleSystem.emittingDirection = SCNVector3(0,0,0)
-        particleSystem.emitterShape = .some(SCNSphere(radius: 0.2))
         particleSystem.spreadingAngle = 30
         particleSystem.particleImage = "star"
         particleSystem.isAffectedByGravity = false
